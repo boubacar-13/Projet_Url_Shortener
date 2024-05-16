@@ -1,7 +1,7 @@
 package routes
 
 import(
-	"github.com/boubacar-13/Projet_Url_Shortener/datbase"
+	"github.com/boubacar-13/Projet_Url_Shortener/database"
 	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
 )
@@ -19,7 +19,7 @@ func ResolveURL(c *fiber.Ctx) error {
 			"error":"Short not found in the DB",
 		})
 	} else if err != nil {
-		return c.Status(fiber.StatusInternalError.JSON(fiber.Map{
+		return c.Status(fiber.StatusInternalServerError.JSON(fiber.Map{
 			"error":"Cannot connect to DB",
 		}))
 	}

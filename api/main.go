@@ -7,6 +7,7 @@ import(
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
+	"github.com/boubacar-13/Projet_Url_Shortener/routes"
 )
 
 function setUpRoutes(app *fiber.App){

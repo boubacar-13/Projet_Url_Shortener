@@ -96,7 +96,7 @@ func ShortenURL(c *fiber.Ctx) error {
 		CustomShort:		"",
 		Expiry:			body.Expiry,
 		RateRemaining: 	10,
-		RateLimitReset:	30
+		RateLimitReset:	30,
 	}
 
 	r2.Decr(database.Ctx, c.IP())

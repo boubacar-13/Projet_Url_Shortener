@@ -1,4 +1,4 @@
-module github.com/boubacar-13/Projet_Url_Shortener
+module github.com/AkhilSharma90/Redis-GO-URL-Shortener
 
 go 1.21.6
 

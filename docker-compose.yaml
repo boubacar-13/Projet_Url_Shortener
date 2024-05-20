@@ -5,6 +5,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    # environment:
+    #   - DOMAIN=http://localhost:3000
   db:
     build: db
     ports:
@@ -15,7 +17,9 @@ services:
   client:
     build: client
     ports:
-      - "3030:3030"
+      - "3001:3001"
     depends_on:
       - api
       - db
+    environment:
+      - API_URL=http://localhost:3000

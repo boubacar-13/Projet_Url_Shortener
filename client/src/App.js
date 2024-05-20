@@ -1,46 +1,107 @@
 import React, { useState } from "react";
-import "./App.css";
-import { shortenUrl } from "../../client/src/api";
+import axios from "axios";
+import "./App.css"; // Assurez-vous d'importer le fichier CSS
 
-function App() {
-  const [originalUrl, setOriginalUrl] = useState("");
-  const [shortUrl, setShortUrl] = useState("");
-  const [error, setError] = useState("");
+const App = () => {
+  const [url, setUrl] = useState("");
+  const [short, setShort] = useState("");
+  const [expiry, setExpiry] = useState(24); // default to 24 hours
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const result = await shortenUrl(originalUrl);
-      setShortUrl(result.shortUrl);
-      setError("");
+      const res = await axios.post("http://localhost:3000/api/v1/", {
+        url,
+        short,
+        expiry,
+      });
+      setResponse(res.data);
+      setError(null);
     } catch (err) {
-      setError("Erreur lors du raccourcissement de l'URL.");
+      setError(
+        err.response
+          ? err.response.data
+          : "Erreur lors du raccourcissement de l'URL"
+      );
     }
   };
 
   return (
-    <div className="App">
+    <div className="container">
       <h1>Raccourcisseur d'URL</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={originalUrl}
-          onChange={(e) => setOriginalUrl(e.target.value)}
-          placeholder="Entrez votre URL"
-        />
-        <button type="submit">Raccourcir</button>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label>URL:</label>
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Personnaliser l'URL:</label>
+          <input
+            type="text"
+            value={short}
+            onChange={(e) => setShort(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Doit expirer dans :</label>
+          <input
+            type="number"
+            value={expiry}
+            onChange={(e) => setExpiry(Number(e.target.value))}
+            min="1"
+            required
+          />
+        </div>
+        <button type="submit" className="btn">
+          Raccourcir l'URL
+        </button>
       </form>
-      {shortUrl && (
-        <div>
-          <h2>URL Raccourcie :</h2>
-          <a href={shortUrl} target="_blank" rel="noopener noreferrer">
-            {shortUrl}
+      {response && (
+        <div className="response">
+          <h2>URL raccourcie</h2>
+          <p>
+            <span className="responsePara">URL initiale:</span> {response.url}
+          </p>
+          <p>
+            <span className="responsePara">URL raccourcie:</span>{" "}
+          </p>
+          <a
+            className="responsePara"
+            href={response.short}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {response.short}
           </a>
+          <p>
+            <span className="responsePara">Expire dans:</span> {response.expiry}{" "}
+            heures
+          </p>
+          <p>
+            <span className="responsePara">
+              Nombre d'utilisation de l'outil de raccourcissement:
+            </span>{" "}
+            {response.rate_limit}
+          </p>
+          <p>
+            <span className="responsePara">
+              Réinitialisation de votre quota d'utilisation dans:
+            </span>{" "}
+            {response.rate_limit_reset} minutes
+          </p>
         </div>
       )}
-      {error && <p className="error">{error}</p>}
+      {error && <div className="error">{error}</div>}
     </div>
   );
-}
+};
 
 export default App;

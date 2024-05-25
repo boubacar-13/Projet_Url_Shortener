@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css"; // Assurez-vous d'importer le fichier CSS
+import "./App.css";
 
 const App = () => {
   const [url, setUrl] = useState("");
@@ -51,7 +51,7 @@ const App = () => {
           />
         </div>
         <div className="form-group">
-          <label>Doit expirer dans :</label>
+          <label>Doit expirer dans (nombre d'heures) :</label>
           <input
             type="number"
             value={expiry}
@@ -81,19 +81,20 @@ const App = () => {
           >
             {response.short}
           </a>
+          <br />
           <p>
             <span className="responsePara">Expire dans:</span> {response.expiry}{" "}
             heures
           </p>
           <p>
             <span className="responsePara">
-              Nombre d'utilisation de l'outil de raccourcissement:
+              Quota d'utilisations restant de l'outil de raccourcissement:
             </span>{" "}
             {response.rate_limit}
           </p>
           <p>
             <span className="responsePara">
-              Réinitialisation de votre quota d'utilisation dans:
+              Réinitialisation du quota d'utilisation dans:
             </span>{" "}
             {response.rate_limit_reset} minutes
           </p>

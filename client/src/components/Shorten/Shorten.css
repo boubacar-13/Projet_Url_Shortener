@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -8,13 +8,14 @@
 h1 {
   text-align: center;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .form {
   background: #f9f9f9;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -29,42 +30,50 @@ h1 {
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .btn {
-  display: block;
   width: 100%;
   padding: 10px;
-  background: #007bff;
+  background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  border-radius: 4px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background: #0056b3;
+  background-color: #218838;
 }
 
 .response {
-  margin-top: 20px;
+  background: #e6f7ff;
   padding: 20px;
-  background: #e9ffe9;
-  border: 1px solid #d4ffd4;
-  border-radius: 5px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .response h2 {
   margin-top: 0;
-  color: #28a745;
 }
 
 .response p {
-  margin: 5px 0;
+  margin: 10px 0;
+}
+
+.response a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.response a:hover {
+  text-decoration: underline;
 }
 
 .responsePara {
@@ -72,10 +81,96 @@ h1 {
 }
 
 .error {
+  color: red;
+  font-weight: bold;
   margin-top: 20px;
+} */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px; /* Augmenté pour plus d'espace horizontal */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form,
+.response {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 100%;
   padding: 10px;
-  background: #ffe9e9;
-  border: 1px solid #ffd4d4;
-  border-radius: 5px;
-  color: #d9534f;
+  background-color: #28a745; /* Updated to a green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.response {
+  margin-left: 20px;
+}
+
+.responsePara {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  margin-top: 20px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.flex-container > .form,
+.flex-container > .response {
+  flex: 1;
+}
+
+.flex-container > .response {
+  margin-left: 20px;
 }

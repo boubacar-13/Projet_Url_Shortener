@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/AkhilSharma90/Redis-GO-URL-Shortener/routes"
+	"github.com/boubacar-13/Projet_Url_Shortener/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"

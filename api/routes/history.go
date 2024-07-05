@@ -1,7 +1,7 @@
 package routes
 
 import (
-    "github.com/AkhilSharma90/Redis-GO-URL-Shortener/database"
+    "github.com/boubacar-13/Projet_Url_Shortener/database"
     "github.com/gofiber/fiber/v2"
     "github.com/go-redis/redis/v8"
     "log"

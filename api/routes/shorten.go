@@ -6,8 +6,8 @@ import (
 	"time"
 	"log"
 
-	"github.com/AkhilSharma90/Redis-GO-URL-Shortener/database"
-	"github.com/AkhilSharma90/Redis-GO-URL-Shortener/helpers"
+	"github.com/boubacar-13/Projet_Url_Shortener/database"
+	"github.com/boubacar-13/Projet_Url_Shortener/helpers"
 	"github.com/asaskevich/govalidator"
 	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"

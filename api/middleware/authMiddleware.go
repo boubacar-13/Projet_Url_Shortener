@@ -1,7 +1,6 @@
 package middleware
 
 import (
-    "github.com/AkhilSharma90/Redis-GO-URL-Shortener/utils"
     "github.com/gofiber/fiber/v2"
 )
 

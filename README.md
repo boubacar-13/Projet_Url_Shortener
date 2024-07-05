@@ -21,10 +21,10 @@ Ce projet est une application de raccourcissement d'URL avec une interface utili
 
 1. Clonez le dépôt :
    git clone https://github.com/boubacar-13/Projet_Url_Shortener.git
-   cd le-repo
+   cd Projet_Url_Shortener
 
 2. Lancez les services avec Docker Compose :
-   docker-compose up --build
+   docker compose up 
 
 ## Utilisation
 
